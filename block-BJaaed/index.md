@@ -11,7 +11,7 @@ writeCode
 #### Data for the app
 
 ```js
-{
+
   books: [
     {
       isbn: "9781593275846",
@@ -128,5 +128,5 @@ writeCode
       website: "https://shichuan.github.io/javascript-patterns/",
     },
   ],
-};
+
 ```
