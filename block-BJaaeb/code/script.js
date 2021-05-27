@@ -37,13 +37,16 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 function createList(array) {
   let ul = document.createElement("ul");
   array.forEach(x=> { 
-   
+   let li = document.createElement("li");
+   li.innerText = x;
+   ul.append(li);
   });
+  return ul;
 }
 
 // // TEST
-// createList(['ALABAMA', 'ALASKA', 'HAWAII', 'KENTUCKY']);
-// createList(['Afghanistan', 'Antarctica', 'Congo', 'Estonia']);
+console.log(createList(['ALABAMA', 'ALASKA', 'HAWAII', 'KENTUCKY']));
+console.log(createList(['Afghanistan', 'Antarctica', 'Congo', 'Estonia']));
 
 // // 4. Create a function named `createTodoList` that accept and array of data like [{name: "Learn DOM", isDone: false}, {name: "Learn JS", isDone: true}] and returns
 // // the html for single todo will look like given below
@@ -59,13 +62,33 @@ function createList(array) {
 
 // // Your code goes here
 
+function createTodoList(array) {
+  let ul = document.createElement("ul");
+  let body = document.querySelector("body");
+  array.forEach(item =>{
+    
+    let li = document.createElement("li");
+    let p = document.createElement("p");
+    p.innerText = item.name;
+    let input = document.createElement("input");
+    input.type = "checkbox"
+    input.checked = ""
+    input.name = " ";
+    input.id = " ";
+    let span = document.createElement("span");
+    span.innerText = "X"
+    li.append(p,input,span)
+    ul.append(li);
+  })
+body.append(ul);
+}
 // // TEST
-// createTodoList([
-//   { name: 'Learn DOM', isDone: false },
-//   { name: 'Learn JS', isDone: true },
-// ]);
-// createTodoList([
-//   { name: 'Learn DOM', isDone: false },
-//   { name: 'Learn React', isDone: true },
-//   { name: 'Learn JS', isDone: true },
-// ]);
+createTodoList([
+  { name: 'Learn DOM', isDone: false },
+  { name: 'Learn JS', isDone: true },
+]);
+console.log(createTodoList([
+  { name: 'Learn DOM', isDone: false },
+  { name: 'Learn React', isDone: true },
+  { name: 'Learn JS', isDone: true },
+]));
